@@ -1,20 +1,35 @@
 body {
-    height: 100%;
-    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     margin: 0;
     background-color: black;
 }
 
+h1 {
+    color: aliceblue;
+    margin: 0 auto;
+}
+
+p {
+    color: aliceblue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
 #game-board {
     background-color: antiquewhite;
-    width: 100vmin;
-    height: 100vmin;
+    width: 80vmin;
+    height: 80vmin;
     display: grid;
-    grid-template-rows: repeat(21, 1ft);
-    grid-template-columns: repeat(21, 1ft);
+    /* 21 -> because of 11 as a center point */
+    grid-template-rows: repeat(21, 1fr);
+    grid-template-columns: repeat(21, 1fr);
 }
 
 .snake {
