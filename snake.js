@@ -26,7 +26,7 @@ export function draw(gameBoard) {
 
 // needs to controls grow behavior
 // if snake eat food how many segments comes additional to the snake
-export function expandSnake(amount){
+export function expandSnake(amount) {
     newSegment += amount;
     increaseSpeed();   
 }
@@ -37,7 +37,7 @@ export function expandSnake(amount){
 // ignoreHead (boolean) - is true when we check for snakeIntersection
 //            here we check that head position equals to one of body element position
 //            but head is also a peace of body, and with the parameter we can ignore this
-export function onSnake(position, ignoreHead = false){
+export function onSnake(position, ignoreHead = false) {
     return snakeBody.some((segment, index) => {
         if (ignoreHead && index === 0) return false;
         return equalPositions(segment, position);
