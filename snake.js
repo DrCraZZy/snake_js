@@ -55,8 +55,8 @@ export function snakeIntersection() {
 }
 
 function increaseSpeed() {
-    if (snakeBody.length % 2 === 0) {
-        snakeSpeed *= 10;
+    if (snakeBody.length % 10 === 0) {
+        snakeSpeed *= 2;
     }
 }
 
