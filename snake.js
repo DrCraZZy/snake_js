@@ -5,7 +5,7 @@ const snakeBody = [{x:11, y:11}];
 let newSegment = 0;
 
 export function update() {
-    addSegment();
+    addSegment();    
     const inputDirection = getInputDirection();
     for(let i = snakeBody.length - 2; i >= 0; i--) {
         snakeBody[i + 1] = { ...snakeBody[i]};
@@ -27,7 +27,8 @@ export function draw(gameBoard) {
 // needs to controls grow behavior
 // if snake eat food how many segments comes additional to the snake
 export function expandSnake(amount){
-    newSegment += amount;     
+    newSegment += amount;
+    increaseSpeed();   
 }
 
 // this function return true if food has the same position
@@ -51,6 +52,12 @@ export function getSnakeHead() {
 // check of collision with own body
 export function snakeIntersection() {
     return onSnake(snakeBody[0], true);
+}
+
+function increaseSpeed() {
+    if (snakeBody.length % 2 === 0) {
+        snakeSpeed *= 10;
+    }
 }
 
 // equals two points 
