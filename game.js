@@ -1,6 +1,6 @@
 import { update as updateSnake, draw as drawSnake, getSnakeHead, snakeIntersection, snakeSpeed } from './snake.js';
 import { update as updateFood, draw as drawFood } from './food.js';
-import { setScoreLine } from './score.js';
+import { setScoreLine, saveScore } from './score.js';
 import { outSideGameBoard } from './grid.js';
 
 let lastRenderTime = 0;
@@ -13,6 +13,7 @@ setScoreLine();
 // function for regular the speed of game
 function main(currentTime) {
     if (gameOver) {
+        saveScore();
         if (confirm('GAME OVER, press ok to restart the game.')) {
             // refresh the window
             window.location = '/';

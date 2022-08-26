@@ -4,7 +4,6 @@ const scoreElement = document.getElementById('score');
 
 export function updateScore() {
     score += 1;
-    saveScore();
     setScoreLine();
 }
 
@@ -24,7 +23,7 @@ function getHighScore() {
 export function setScoreLine() {
     let scoreElementText = `Your score: ${score}`;
     if (highScore > 0) {
-        scoreElementText += `| High score: ${highScore}`
+        scoreElementText += `  | High score: ${highScore}`
     }
     scoreElement.innerHTML = scoreElementText;
 }
