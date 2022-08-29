@@ -1,30 +1,34 @@
-let score = 0;
-let highScore = getHighScore();
-const scoreElement = document.getElementById('score');
+export class Score {
 
-export function updateScore() {
-    score += 1;
-    setScoreLine();
-}
+    static score = 0;
+    static highScore = Score.getHighScore();
+    static scoreElement = document.getElementById('score');
+    
 
-export function saveScore() {
-    if (score > highScore) {
-        localStorage.setItem("snakeHighScore", `${score}`);
+    updateScore() {
+        Score.score += 1;
+        this.setScoreLine();
     }
-}
 
-function getHighScore() {
-    // + is cast to number
-    let highScore = +localStorage.getItem("snakeHighScore");
-     return highScore === null ? 0 : highScore;
-}
-
-// set the line with score and high score in top of game board
-export function setScoreLine() {
-    let scoreElementText = `Your score: ${score}`;
-    if (highScore > 0) {
-        scoreElementText += `  | High score: ${highScore}`
+    saveScore() {
+        if (Score.score > Score.highScore) {
+            localStorage.setItem("snakeHighScore", `${Score.score}`);
+        }
     }
-    scoreElement.innerHTML = scoreElementText;
-}
+    
+    // set the line with score and high score in top of game board
+    setScoreLine() {
+        let scoreElementText = `Your score: ${Score.score}`;
+        if (Score.highScore > 0) {
+            scoreElementText += `  | High score: ${Score.highScore}`
+        }
+        Score.scoreElement.innerHTML = scoreElementText;
+    }
 
+    static getHighScore() {
+        // + is cast to number
+        let highScore = +localStorage.getItem("snakeHighScore");
+        return highScore === null ? 0 : highScore;
+    }
+
+}

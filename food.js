@@ -1,6 +1,6 @@
 import { onSnake, expandSnake } from './snake.js';
 import { Grid } from './Grid.js';
-import { updateScore } from './score.js';
+import { Score } from './Score.js';
 
 export class Food {
 
@@ -8,13 +8,14 @@ export class Food {
 
     constructor() {
         this._food = this.#getRandomFoodPosition();
+        this._scoreObj = new Score();
     }
 
     update() {
-        if(onSnake( this._food)) {
+        if(onSnake( this._food)) {            
             expandSnake(Food.EXPANSION_RATE);
             this._food = this.#getRandomFoodPosition();
-            updateScore();
+            this._scoreObj.updateScore();
         }
     }
 
