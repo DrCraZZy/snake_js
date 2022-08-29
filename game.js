@@ -1,7 +1,7 @@
 import { update as updateSnake, draw as drawSnake, getSnakeHead, snakeIntersection, snakeSpeed } from './snake.js';
 import { update as updateFood, draw as drawFood } from './food.js';
 import { setScoreLine, saveScore } from './score.js';
-import { outSideGameBoard } from './grid.js';
+import { Grid } from './Grid.js';
 
 let lastRenderTime = 0;
 let gameOver = false;
@@ -57,5 +57,5 @@ function draw() {
 }
 
 function checkGameOver() {
-    gameOver = outSideGameBoard(getSnakeHead()) || snakeIntersection();
+    gameOver = Grid.outSideGameBoard(getSnakeHead()) || snakeIntersection();
 }

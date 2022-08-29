@@ -1,14 +1,17 @@
-const GRID_SIZE = 21;
+export class Grid {
 
-export function randomGridPosition() {
-    return {
-        x: Math.floor(Math.random() * GRID_SIZE) + 1,
-        y: Math.floor(Math.random() * GRID_SIZE) + 1
-    };
-}
+    static GRID_SIZE = 21;
 
-export function outSideGameBoard(headPosition) {
-    return (
-        headPosition.x < 1 || headPosition.y < 1 || headPosition.x > GRID_SIZE || headPosition.y > GRID_SIZE
-    );
+    static randomGridPosition() {
+        return {
+            x: Math.floor(Math.random() * Grid.GRID_SIZE) + 1,
+            y: Math.floor(Math.random() * Grid.GRID_SIZE) + 1
+        };
+    }
+
+    static outSideGameBoard(headPosition) {
+        return (
+            headPosition.x < 1 || headPosition.y < 1 || headPosition.x > Grid.GRID_SIZE || headPosition.y > Grid.GRID_SIZE
+        );
+    }
 }
