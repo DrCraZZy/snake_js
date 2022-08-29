@@ -1,11 +1,13 @@
 import { update as updateSnake, draw as drawSnake, getSnakeHead, snakeIntersection, snakeSpeed } from './snake.js';
-import { update as updateFood, draw as drawFood } from './food.js';
+import { Food } from './Food.js';
 import { setScoreLine, saveScore } from './score.js';
 import { Grid } from './Grid.js';
 
 let lastRenderTime = 0;
 let gameOver = false;
 const gameBoard = document.getElementById('game-board');
+
+const foodObj = new Food();
 
 // write score line
 setScoreLine();
@@ -44,7 +46,7 @@ window.requestAnimationFrame(main);
 
 // function for update snake and food date
 function update() {
-    updateFood();
+    foodObj.update();
     updateSnake();
     checkGameOver();
 }
@@ -53,7 +55,7 @@ function update() {
 function draw() {
     gameBoard.innerHTML = '';
     drawSnake(gameBoard);
-    drawFood(gameBoard);
+    foodObj.draw(gameBoard);
 }
 
 function checkGameOver() {
